@@ -21,8 +21,8 @@ function getProgressBar(current, total) {
 async function yearProgress() {
   const lastPercentage = await fs.promises.readFile(path.join(__dirname, 'progress.txt'));
 
-  const start = new Date(2021, 0, 1);
-  const end = new Date(2021, 11, 31);
+  const start = new Date(new Date().getFullYear(), 0, 1);
+  const end = new Date(new Date().getFullYear(), 11, 31);
 
   const percentage = Math.floor(( ( new Date() - start ) / ( end - start ) ) * 100);
   if (percentage === Number(lastPercentage.toString())) return;
